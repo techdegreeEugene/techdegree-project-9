@@ -7,6 +7,7 @@ const usersRoutes = require('./routes/users');
 const coursesRoutes = require('./routes/courses');
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
+const indexModels = require('./models/index');
 
 
 
@@ -36,6 +37,19 @@ app.use('/api/users', usersRoutes);
 app.use('/api/courses', coursesRoutes);
 app.use('/api/index', indexRoutes);
 app.use('/api/auth', authRoutes);
+
+const db = require("./models");
+
+//test the connection to the database
+(async () => {
+  try {
+    await db.sequelize.authenticate();
+    console.log("Connected to the database");
+  } catch (error) {
+    console.error("Error connecting to the database", error);
+  }
+})();
+
 
 
 // send 404 if no other route matched

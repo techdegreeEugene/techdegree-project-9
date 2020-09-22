@@ -23,7 +23,7 @@ router.get('/', asyncHandler( async (req, res, next) => {
         "title", 
         "description", 
         "userId", 
-        "estimateTime", 
+        "estimatedTime", 
         "materialsNeeded"]
         
     })

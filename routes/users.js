@@ -56,8 +56,7 @@ asyncHandler(async (req, res, next) => {
 
         await User.create(user)
             .then(user => {
-                res.location = '/';
-                res.status(201).end();
+                res.status(201).set("Location", "/").end();
             })
         }
     }) 
